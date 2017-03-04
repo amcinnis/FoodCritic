@@ -14,6 +14,8 @@
 		D5F026BE1E6A9387008A944B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5F026BD1E6A9387008A944B /* Assets.xcassets */; };
 		D5F026C11E6A9387008A944B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5F026BF1E6A9387008A944B /* LaunchScreen.storyboard */; };
 		D5F026C91E6A951D008A944B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5F026C81E6A951D008A944B /* GoogleService-Info.plist */; };
+		D5F026CB1E6A9D97008A944B /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F026CA1E6A9D97008A944B /* Review.swift */; };
+		D5F026CD1E6AA408008A944B /* batman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D5F026CC1E6AA408008A944B /* batman.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		D5F026C01E6A9387008A944B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5F026C21E6A9387008A944B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5F026C81E6A951D008A944B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D5F026CA1E6A9D97008A944B /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		D5F026CC1E6AA408008A944B /* batman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = batman.jpg; sourceTree = "<group>"; };
 		D7A0C12B7C225ABA3A351859 /* Pods-Food Critic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food Critic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Food Critic/Pods-Food Critic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,10 +85,12 @@
 			isa = PBXGroup;
 			children = (
 				D5F026B61E6A9387008A944B /* AppDelegate.swift */,
+				D5F026CA1E6A9D97008A944B /* Review.swift */,
 				D5F026B81E6A9387008A944B /* ViewController.swift */,
 				D5F026BA1E6A9387008A944B /* Main.storyboard */,
 				D5F026BD1E6A9387008A944B /* Assets.xcassets */,
 				D5F026BF1E6A9387008A944B /* LaunchScreen.storyboard */,
+				D5F026CC1E6AA408008A944B /* batman.jpg */,
 				D5F026C21E6A9387008A944B /* Info.plist */,
 				D5F026C81E6A951D008A944B /* GoogleService-Info.plist */,
 			);
@@ -157,6 +163,7 @@
 				D5F026C11E6A9387008A944B /* LaunchScreen.storyboard in Resources */,
 				D5F026C91E6A951D008A944B /* GoogleService-Info.plist in Resources */,
 				D5F026BE1E6A9387008A944B /* Assets.xcassets in Resources */,
+				D5F026CD1E6AA408008A944B /* batman.jpg in Resources */,
 				D5F026BC1E6A9387008A944B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +225,7 @@
 			files = (
 				D5F026B91E6A9387008A944B /* ViewController.swift in Sources */,
 				D5F026B71E6A9387008A944B /* AppDelegate.swift in Sources */,
+				D5F026CB1E6A9D97008A944B /* Review.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +391,7 @@
 				D5F026C71E6A9387008A944B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

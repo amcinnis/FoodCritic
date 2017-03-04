@@ -7,5 +7,6 @@ target 'Food Critic' do
 
   # Pods for Food Critic
   pod 'Firebase/Core'
+  pod 'Cosmos', '~> 8.0'
 
 end
