@@ -9,5 +9,6 @@ target 'Food Critic' do
   pod 'Firebase/Core'
   pod 'Cosmos', '~> 8.0'
   pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 
 end
