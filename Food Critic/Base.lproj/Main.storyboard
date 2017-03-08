@@ -136,7 +136,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="rating" destination="ue7-MV-ljg" id="X6o-rL-U9A"/>
+                                    <outlet property="cosmos" destination="ue7-MV-ljg" id="Jhh-bG-X5z"/>
                                     <outlet property="restaurantLabel" destination="JhO-fZ-34n" id="Nt4-Sc-t6W"/>
                                 </connections>
                             </tableViewCell>
@@ -195,6 +195,14 @@
                                 <rect key="frame" x="124" y="114" width="127" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Review:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mfg-c4-FZq">
                                 <rect key="frame" x="16" y="176" width="59" height="21"/>
@@ -210,7 +218,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkN-rH-FxP">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkN-rH-FxP">
                                 <rect key="frame" x="144" y="617" width="87" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Review"/>
@@ -222,7 +230,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="rating" destination="VKD-vG-NCP" id="2V5-vL-raa"/>
+                        <outlet property="addReviewButton" destination="fkN-rH-FxP" id="oz0-X0-CN5"/>
+                        <outlet property="cosmos" destination="VKD-vG-NCP" id="Xv7-91-EuU"/>
                         <outlet property="restaurantName" destination="fhQ-6h-uI8" id="jc8-cR-eW1"/>
                         <outlet property="review" destination="YVW-Th-3lK" id="OXK-z2-uko"/>
                     </connections>

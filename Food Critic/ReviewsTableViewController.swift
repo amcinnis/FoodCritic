@@ -9,6 +9,7 @@
 import UIKit
 import Cosmos
 import Firebase
+import FirebaseDatabase
 
 class UserCell: UITableViewCell {
     
@@ -21,12 +22,12 @@ class UserCell: UITableViewCell {
 class ReviewCell: UITableViewCell {
     
     @IBOutlet var restaurantLabel: UILabel!
-    @IBOutlet var rating: CosmosView!
+    @IBOutlet var cosmos: CosmosView!
 }
 
 class ReviewsTableViewController: UITableViewController {
 
-    private var database = FIRDatabase.database().reference()
+    private var database: FIRDatabaseReference!
     private var reviews = [FIRDataSnapshot]()
     
     override func viewDidLoad() {
@@ -38,6 +39,8 @@ class ReviewsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        database = FIRDatabase.database().reference()
+        
         let reviewsRef = database.child("reviews")
         
         reviewsRef.observe(.childAdded, with: {
@@ -47,12 +50,15 @@ class ReviewsTableViewController: UITableViewController {
             this.tableView.insertRows(at: [IndexPath(row: this.reviews.count-1, section: 1)], with: .automatic)
         })
         
-        reviewsRef.observe(.childRemoved, with: {
-            [weak self] (snapshot) in
-            guard let this = self else { return }
-            let id = snapshot.value as! String
-            
-        })
+//        reviewsRef.observe(.childRemoved, with: {
+//            [weak self] (snapshot) in
+//            guard let this = self else { return }
+//            let id = snapshot.value as! String
+//            var index = -1
+//            for (i, snap) in this.reviews.enumerated() {
+//                if snap.
+//            }
+//        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,13 +78,8 @@ class ReviewsTableViewController: UITableViewController {
         if section == 0 {
             return 1
         }
-        return 0
+        return reviews.count
     }
-
-    @IBAction func addReview(_ sender: Any) {
-    
-    }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -92,7 +93,10 @@ class ReviewsTableViewController: UITableViewController {
             return cell
         }
         else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as! ReviewCell
+            let snapshot = reviews[indexPath.row]
+            cell.restaurantLabel.text = snapshot.childSnapshot(forPath: "name").value as? String
+            cell.cosmos.rating = snapshot.childSnapshot(forPath: "rating").value as! Double
             
             return cell
         }
