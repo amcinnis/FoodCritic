@@ -11,13 +11,13 @@ import Cosmos
 import Firebase
 import FirebaseDatabase
 
-class NewReviewViewController: UIViewController, UITextFieldDelegate {
+class NewReviewViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate {
     
     private var databaseRef = FIRDatabase.database().reference()
     
     @IBOutlet var restaurantName: UITextField!
     @IBOutlet var cosmos: CosmosView!
-    @IBOutlet var review: UITextField!
+    @IBOutlet var review: UITextView!
     @IBOutlet weak var addReviewButton: UIButton!
 
     override func viewDidLoad() {
@@ -27,7 +27,14 @@ class NewReviewViewController: UIViewController, UITextFieldDelegate {
         restaurantName.delegate = self
         review.delegate = self
         restaurantName.addTarget(self, action: #selector(NewReviewViewController.valuesChanged), for: .editingChanged)
-        review.addTarget(self, action: #selector(NewReviewViewController.valuesChanged), for: .editingChanged)
+        cosmos.didFinishTouchingCosmos = {
+            [weak self] (rating) in
+            guard let this = self else { return }
+            this.valuesChanged()
+        }
+        review.layer.borderWidth = 1.0
+        review.layer.borderColor = UIColor.lightGray.cgColor
+        review.layer.cornerRadius = 3.0
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,12 +45,14 @@ class NewReviewViewController: UIViewController, UITextFieldDelegate {
     @IBAction func addReview(_ sender: Any) {
         let reviewsRef = databaseRef.child("reviews")
         let reviewRef = reviewsRef.childByAutoId()
-        reviewRef.child("name").setValue(restaurantName.text!)
-        reviewRef.child("rating").setValue(cosmos.rating)
-        reviewRef.child("description").setValue(review.text!)
+        reviewRef.setValue(["name": restaurantName.text!, "rating": Int(cosmos.rating), "description": review.text!])
         dismiss(animated: true, completion: nil)
     }
 
+    func textViewDidChange(_ textView: UITextView) {
+        valuesChanged()
+    }
+    
     func valuesChanged() {
         if !(restaurantName.text?.isEmpty)! && !(review.text?.isEmpty)! && cosmos.rating > 0 {
             addReviewButton.isEnabled = true

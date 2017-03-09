@@ -12,12 +12,6 @@ class Review {
     var id: String?
     var name: String?
     var rating: Int?
-    var summary: String?
-    
-    init(id: String, name: String, rating: Int, summary: String) {
-        self.id = id
-        self.name = name
-        self.rating = rating
-        self.summary = summary
-    }
+    var description: String?
+
 }

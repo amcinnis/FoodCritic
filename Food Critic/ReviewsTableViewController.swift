@@ -21,6 +21,7 @@ class UserCell: UITableViewCell {
 
 class ReviewCell: UITableViewCell {
     
+    var review: Review?
     @IBOutlet var restaurantLabel: UILabel!
     @IBOutlet var cosmos: CosmosView!
 }
@@ -28,7 +29,7 @@ class ReviewCell: UITableViewCell {
 class ReviewsTableViewController: UITableViewController {
 
     private var database: FIRDatabaseReference!
-    private var reviews = [FIRDataSnapshot]()
+    private var reviews = [Review]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,19 +47,34 @@ class ReviewsTableViewController: UITableViewController {
         reviewsRef.observe(.childAdded, with: {
             [weak self] (snapshot) in
             guard let this = self else { return }
-            this.reviews.append(snapshot)
+//            this.reviews.append(snapshot)
+            let review = Review()
+            review.id = snapshot.key
+            if let name = snapshot.childSnapshot(forPath: "name").value as? String {
+                review.name = name
+            }
+            if let rating = snapshot.childSnapshot(forPath: "rating").value as? Int {
+                review.rating = rating
+            }
+            if let desc = snapshot.childSnapshot(forPath: "description").value as? String {
+                review.description = desc
+            }
+            this.reviews.append(review)
             this.tableView.insertRows(at: [IndexPath(row: this.reviews.count-1, section: 1)], with: .automatic)
         })
         
-//        reviewsRef.observe(.childRemoved, with: {
-//            [weak self] (snapshot) in
-//            guard let this = self else { return }
-//            let id = snapshot.value as! String
-//            var index = -1
-//            for (i, snap) in this.reviews.enumerated() {
-//                if snap.
-//            }
-//        })
+        reviewsRef.observe(.childRemoved, with: {
+            [weak self] (snapshot) in
+            guard let this = self else { return }
+            let id = snapshot.key
+            for (i, review) in this.reviews.enumerated() {
+                if review.id == id {
+                    this.reviews.remove(at: i)
+                    this.tableView.deleteRows(at: [IndexPath(row:i, section: 1)], with: .automatic)
+                    break
+                }
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,9 +110,10 @@ class ReviewsTableViewController: UITableViewController {
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as! ReviewCell
-            let snapshot = reviews[indexPath.row]
-            cell.restaurantLabel.text = snapshot.childSnapshot(forPath: "name").value as? String
-            cell.cosmos.rating = snapshot.childSnapshot(forPath: "rating").value as! Double
+            let review = reviews[indexPath.row]
+            cell.review = review
+            cell.restaurantLabel.text = review.name
+            cell.cosmos.rating = Double(review.rating!)
             
             return cell
         }
@@ -138,14 +155,25 @@ class ReviewsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "detail" {
+            if let nav = segue.destination as? UINavigationController {
+                if let dest = nav.topViewController as? ReviewViewController {
+                    if let cell = sender as? ReviewCell {
+                        if let review = cell.review {
+                            dest.review = review
+                        }
+                    }
+                }
+            }
+        }
     }
-    */
+ 
 
 }

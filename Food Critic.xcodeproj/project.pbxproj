@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A7EE607551D18BB579AEA69D /* Pods_Food_Critic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965BE77EB93D567852FD3852 /* Pods_Food_Critic.framework */; };
+		D5174BF01E71E5DE00D2388C /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5174BEF1E71E5DD00D2388C /* SplitViewController.swift */; };
+		D51975721E6FEBE7006CEAE5 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51975711E6FEBE7006CEAE5 /* ReviewViewController.swift */; };
 		D5F026B71E6A9387008A944B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F026B61E6A9387008A944B /* AppDelegate.swift */; };
 		D5F026BC1E6A9387008A944B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5F026BA1E6A9387008A944B /* Main.storyboard */; };
 		D5F026BE1E6A9387008A944B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5F026BD1E6A9387008A944B /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		26EA0D6A388FE2E686806725 /* Pods-Food Critic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food Critic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Food Critic/Pods-Food Critic.debug.xcconfig"; sourceTree = "<group>"; };
 		965BE77EB93D567852FD3852 /* Pods_Food_Critic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_Critic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5174BEF1E71E5DD00D2388C /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		D51975711E6FEBE7006CEAE5 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		D5F026B31E6A9387008A944B /* Food Critic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Critic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5F026B61E6A9387008A944B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5F026BB1E6A9387008A944B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,10 +91,12 @@
 			isa = PBXGroup;
 			children = (
 				D5F026B61E6A9387008A944B /* AppDelegate.swift */,
+				D5F026BA1E6A9387008A944B /* Main.storyboard */,
 				D5F090981E6F580200363D40 /* NewReviewViewController.swift */,
 				D5F026CA1E6A9D97008A944B /* Review.swift */,
 				D5F090961E6F450A00363D40 /* ReviewsTableViewController.swift */,
-				D5F026BA1E6A9387008A944B /* Main.storyboard */,
+				D51975711E6FEBE7006CEAE5 /* ReviewViewController.swift */,
+				D5174BEF1E71E5DD00D2388C /* SplitViewController.swift */,
 				D5F026BD1E6A9387008A944B /* Assets.xcassets */,
 				D5F026BF1E6A9387008A944B /* LaunchScreen.storyboard */,
 				D5F026CC1E6AA408008A944B /* batman.jpg */,
@@ -228,8 +234,10 @@
 			files = (
 				D5F090971E6F450A00363D40 /* ReviewsTableViewController.swift in Sources */,
 				D5F026B71E6A9387008A944B /* AppDelegate.swift in Sources */,
+				D51975721E6FEBE7006CEAE5 /* ReviewViewController.swift in Sources */,
 				D5F026CB1E6A9D97008A944B /* Review.swift in Sources */,
 				D5F090991E6F580200363D40 /* NewReviewViewController.swift in Sources */,
+				D5174BF01E71E5DE00D2388C /* SplitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
