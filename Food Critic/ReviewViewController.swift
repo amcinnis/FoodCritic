@@ -22,6 +22,8 @@ class ReviewViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.automaticallyAdjustsScrollViewInsets = false
+        
         if let review = review {
             nameLabel.text = review.name
             cosmos.rating = Double(review.rating!)
